@@ -15,24 +15,21 @@ class Road {
 	draw(ctx) {
 		ctx.lineWidth = 5;
 		ctx.strokeStyle = "white";
+		ctx.setLineDash([]);
 
 		for (let i = 0; i <= this.laneCount; i++) {
 			// Linear interpolation of 2 points + procent 
 			const x = lerp(this.left, this.right, i/this.laneCount);
-			
-			if(i > 0 && i < this.laneCount) {
-				ctx.setLineDash([3,2]);
+			if (i === 2){
+				ctx.setLineDash([20,20]);
 			} else {
-				ctx.setLineDash([]);
+			ctx.setLineDash([]);
 			}
-			
-			// Draw line 
 			ctx.beginPath();
-			ctx.moveTo(x, this.top);
-			ctx.lineTo(x, this.bottom);
-			ctx.stroke();
-
-			
+         ctx.moveTo(x, this.top);
+         ctx.lineTo(x, this.bottom);
+         ctx.stroke();
+			// Draw line
 		}
 	}
 }
