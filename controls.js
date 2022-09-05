@@ -22,7 +22,7 @@ class Controls {
 			if(event.key === "ArrowDown") {
 				this.reverse = true;
 			}
-			console.dir(this);
+
 		}
 		document.onkeyup = (event) => {
 			if(event.key === "ArrowLeft") {
@@ -37,7 +37,6 @@ class Controls {
 			if(event.key === "ArrowDown") {
 				this.reverse = false;
 			}
-			console.dir(this);
 		}
 	}
 }
