@@ -1,5 +1,5 @@
 class Road {
-	constructor(x, width, laneCount = 3) {
+	constructor(x, width, laneCount = 4) {
 		this.x =  x;
 		this.width = width;
 		this.laneCount = laneCount;
@@ -19,11 +19,19 @@ class Road {
 		for (let i = 0; i <= this.laneCount; i++) {
 			// Linear interpolation of 2 points + procent 
 			const x = lerp(this.left, this.right, i/this.laneCount);
-
+			
+			
+			// Draw line 
 			ctx.beginPath();
 			ctx.moveTo(x, this.top);
 			ctx.lineTo(x, this.bottom);
 			ctx.stroke();
+
+			if(i > 0 && i < this.laneCount) {
+				ctx.setLineDash([5, 15]);
+			} else {
+				ctx.setLineDash([]);
+			}
 		}
 	}
 }
